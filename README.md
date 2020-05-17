@@ -24,20 +24,21 @@ Para instalação do site, é necessário utilizar npm install na pasta raiz do 
 
 
 ### Telas da aplicação web
-<img src="https://github.com/gguilhermepires/desafio_player_um/blob/master/tela01.jpeg" width="600" height="400" >
+
+<img src="https://github.com/gguilhermepires/desafio_player_um/blob/master/tela01.png" width="600" height="400" >
 <hr>
-<img src="https://github.com/gguilhermepires/desafio_player_um/blob/master/tela02.jpeg"  width="600" height="400" >
+<img src="https://github.com/gguilhermepires/desafio_player_um/blob/master/tela02.png"  width="600" height="400" >
 <hr>
-<img src="https://github.com/gguilhermepires/desafio_player_um/blob/master/tela03.jpeg"  width="600" height="400" >
+<img src="https://github.com/gguilhermepires/desafio_player_um/blob/master/tela03.png"  width="600" height="400" >
 <hr>
-<img src="https://github.com/gguilhermepires/desafio_player_um/blob/master/tela04.jpeg"  width="600" height="400" >
+<img src="https://github.com/gguilhermepires/desafio_player_um/blob/master/tela04.png"  width="600" height="400" >
 <hr>
-<img src="https://github.com/gguilhermepires/desafio_player_um/blob/master/tela05.jpeg"  width="600" height="400" >
+<img src="https://github.com/gguilhermepires/desafio_player_um/blob/master/tela05.png"  width="600" height="400" >
 <hr>
-<img src="https://github.com/gguilhermepires/desafio_player_um/blob/master/tela06.jpeg"  width="600" height="400" >
+<img src="https://github.com/gguilhermepires/desafio_player_um/blob/master/tela06.png"  width="600" height="400" >
 <hr>
-<img src="https://github.com/gguilhermepires/desafio_player_um/blob/master/tela07.jpeg"  width="600" height="400" >
+<img src="https://github.com/gguilhermepires/desafio_player_um/blob/master/tela07.png"  width="600" height="400" >
 <hr>
-<img src="https://github.com/gguilhermepires/desafio_player_um/blob/master/tela08.jpeg"  width="600" height="400" >
+<img src="https://github.com/gguilhermepires/desafio_player_um/blob/master/tela08.png"  width="600" height="400" >
 <hr>
-<img src="https://github.com/gguilhermepires/desafio_player_um/blob/master/tela09.jpeg"  width="600" height="400" >
+<img src="https://github.com/gguilhermepires/desafio_player_um/blob/master/tela09.png"  width="600" height="400" >
