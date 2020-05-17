@@ -1,4 +1,4 @@
-# desafio player um
+# Desafio player um
 
 Desafio Backend 
 Criar uma aplicação WEB que permita que usuários após a autenticação possam cadastrar lugares existentes no Senhor dos anéis, subindo uma imagem e nome, e que possam votar quantas vezes quiserem em qual é o melhor lugar para se viver em MiddleEarth.
