@@ -1,0 +1,75 @@
+<!-- Evento header -->
+<script type="text/javascript">
+
+  function open_url(caminho) {
+    var url = location.href;
+    url = url.replace("https://", "").replace("http://", "");
+    location.href = "http://" + url.split('/')[0] + caminho;;
+  }
+  function show_msg(title, msg, type) {
+    document.getElementById("modal_msg_title").innerText = title;
+
+    if (type == "success") {
+      document.getElementById("modal_msg_success").innerText = msg;
+      document.getElementById("modal_msg_error").style.display = "none";
+      document.getElementById("modal_msg_success").style.display = "block";
+    } else {
+      document.getElementById("modal_msg_error").innerText = msg;
+      document.getElementById("modal_msg_error").style.display = "block";
+      document.getElementById("modal_msg_success").style.display = "none";
+    }
+
+    $('#modal_msg').modal('toggle');
+  }
+
+  function send_vote(id) {
+
+    //  var socket = io("<%=socket_server%>");
+    // var url = document.location;
+    // var socket = io(url);
+
+    socket.emit("send_vote", { data: `{"id":${id}}` }, function (data) {
+
+      if (data.error)
+        show_msg("Erro", "Não foi possível computar seu voto, tente de novo mais tarde.", "erro");
+      else
+        if (data.ok) {
+          show_msg("Confirmação", "Voto realizado com sucesso !", "success");
+
+          document.getElementById("vote_place_" + data.place.id).innerHTML = data.place.vote;
+        }
+    });
+  }
+
+</script>
+
+<!-- Atualiza votação -->
+<script type="text/javascript">
+  //var socket = io("<%=socket_server%>");
+  var url = window.location.href;
+  var socket = io(url);
+  socket.on('vote', function (messageS) {
+    try {
+      alert
+      console.log(messageS);
+      var obj = JSON.parse(messageS);
+      if (obj) {
+        var s = document.getElementById("vote_place_" + obj.id).innerHTML = obj.vote;
+      }
+    } catch (e) {
+      console.log("erro socket", e);
+    }
+  });
+</script>
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+  integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+  integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

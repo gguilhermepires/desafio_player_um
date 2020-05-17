@@ -1,0 +1,52 @@
+<!-- Funções do formulário -->
+
+<script type="text/javascript">
+
+  function send_form() {
+    document.getElementById("form_place").submit();
+  }
+
+  function open_url(caminho) {
+    var url = location.href;
+    url = url.replace("https://", "").replace("http://", "");
+    location.href = "http://" + url.split('/')[0] + caminho;;
+  }
+  function bt_back() {
+    open_url('/admin/place/');
+  }
+</script>
+
+<!-- abrir dialog se hover mensagem-->
+<script type="text/javascript">
+  $(document).ready(function () {
+
+    // pega mensagens do servidor
+    var msg_form = "<%=msg_form%>";
+    var msg_form_erro = "<%=msg_form_erro%>";
+
+    //tratamento das mensagens de cadastro
+    if (msg_form) {
+      document.getElementById("modal_msg_title").innerText = "Adição de lugar";
+      document.getElementById("modal_msg_success").innerText = msg_form;
+      document.getElementById("modal_msg_error").style.display = "none";
+      $('#modal_msg').modal('toggle');
+    } else if (msg_form_erro) {
+      document.getElementById("modal_msg_title").innerText = "Validação";
+      document.getElementById("modal_msg_error").innerText = msg_form_erro;
+      document.getElementById("modal_msg_success").style.display = "none";
+      $('#modal_msg').modal('toggle');
+    }
+  });
+</script>
+
+<!-- bootstrap -->
+<script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
+  crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+  integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+</html>

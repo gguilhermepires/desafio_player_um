@@ -1,0 +1,65 @@
+<!--head -->
+<%- include('../includes/header/login_head.ejs')%>
+<!-- fim head-->
+<!-- body-->
+<div class="page-header">
+    <%- include('../includes/nav_login_top.ejs')%>
+</div>
+
+<div class="container-fluid ">
+
+    <div class="row">
+        <div class="col-9  mt-5 "></div>
+
+        <div class="col-3  mt-5 ">
+
+            <form class="col_background" action="/login" method="POST">
+
+                <div class="form-group row">
+
+                    <label for="inputPassword" class="col-sm-3   col-form-label text-right text-light ">E-mail:</label>
+
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="email" name="email">
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <label for="inputPassword" class="col-sm-3  col-form-label text-right text-light">Senha:</label>
+
+                    <div class="col-sm-8">
+                        <input type="password" class="form-control" id="pass" name="pass">
+                    </div>
+
+                </div>
+
+                <% if (msg_form_erro) {%>
+                <div class="form-group row text-right">
+                    <div class="col-sm-10 ">
+                        <p style="color:red;" id="msgLogin" name=id="msgLogin"><%= msg_form_erro%></p>
+                    </div>
+                </div>
+                <%  }%>
+
+                <div class="form-group row">
+
+                    <label for="inputPassword" class="col-sm-3   col-form-label text-right text-light "></label>
+
+                    <div class="col-sm-8">
+
+                        <button type="submit" class="btn btn-light btn-lg lordOfRingsFont" id="btEntrar" name="btEntrar">Entrar</button>
+
+                        <a href="/" class="btn btn-light btn-lg ml-4 lordOfRingsFont">Voltar</a>
+
+                    </div>
+
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<%- include('../includes/footer/login_footer.ejs')%>

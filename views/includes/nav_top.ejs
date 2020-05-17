@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg  " style="background-color: black;">
+
+  <a class="navbar-brand" onclick="open_url('/')">
+    <img src="/img/logo.jpg" height="60" width="130" class="d-inline-block align-top"  style="border-radius: 25px;" alt="">
+  </a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse " id="navbarSupportedContent">
+
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item  text-light">
+        <a class="btn btn-white" onclick="open_url('/')">Home</a>
+      </li>
+
+  
+      <% if(user) {%>
+ 
+      <li class="nav-item ">
+        <div class="dropdown ">
+          <button class="btn btn-white dropdown-toggle text-light" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Cadastro
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" onclick="open_url('/admin/place')">Lugar</a>
+
+          </div>
+        </div>
+      </li>
+    <% }%>
+
+    </ul>
+    <% if(user) {%>
+    <p class="usuario mr-5"><%=user.name%></p>
+    <button class="btn btn-outline-danger my-2 my-sm-0" onclick="open_url('/logout')">Sair</button>
+    <% } else { %>
+    <button class="btn btn-outline-success my-2 my-sm-0" onclick="open_url('/login')">Login</button>
+    <% } %> 
+    </div>
+</nav>

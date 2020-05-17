@@ -1,0 +1,13 @@
+<script>
+  
+  function open_url(caminho) {
+    var url = location.href;
+    url = url.replace("https://", "").replace("http://", "");
+    location.href = "http://" + url.split('/')[0] + caminho;;
+  }
+
+</script>
+
+</body>
+
+</html>

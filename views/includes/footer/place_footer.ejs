@@ -1,0 +1,80 @@
+<script type="text/javascript">
+
+  function delete_place() {
+
+    $("#modal_msg").on("hidden.bs.modal", function () {
+      window.location.reload(true);
+    });
+
+    $('#modal_remove').modal('hide');
+
+    const id = document.getElementById("item_id").value;
+
+    var url = "http://51.161.75.161:3001/admin/place";
+    axios.delete(url + "/" + id).then(response => {
+
+      if (response.status == 200) {
+        document.getElementById("modal_msg_title").innerText = "Exclusao de lugar";
+        document.getElementById("modal_msg_success").innerText = "Lugar deletedo com sucesso !";
+        document.getElementById("modal_msg_error").style.display = "none";
+        $('#modal_msg').modal('toggle');
+      }
+      else {
+        document.getElementById("modal_msg_title").innerText = "Exclusao de lugar";
+        document.getElementById("modal_msg_error").innerText = "Não foi possível deletear lugar";
+        document.getElementById("modal_msg_success").style.display = "none";
+        $('#modal_msg').modal('toggle');
+      }
+
+    }).catch(err => {
+      document.getElementById("modal_msg_title").innerText = "Exclusao de lugar";
+      document.getElementById("modal_msg_error").innerText = "Não foi possível deletear lugar";
+      document.getElementById("modal_msg_success").style.display = "none";
+      $('#modal_msg').modal('toggle');
+    });
+
+  }
+
+  function abir_url(caminho) {
+    var url = location.href;
+    url = url.replace("https://", "").replace("http://", "");
+    location.href = "http://" + url.split('/')[0] + caminho;;
+  }
+
+  function bt_add() {
+    abir_url("/admin/place/add");
+  }
+
+  function bt_back() {
+    abir_url("/");
+  }
+  function open_url(caminho) {
+    var url = location.href;
+    url = url.replace("https://", "").replace("http://", "");
+    location.href = "http://" + url.split('/')[0] + caminho;;
+  }
+
+  function bt_remove(button_edit) {
+    var row = $(button_edit).parents("tr");
+    var cols = row.children("td");
+
+    $("#item_id").val($(cols[0]).text());
+
+    document.getElementById("modal_remove_msg").innerText = `Tem certeza que deseja excluir o lugar "${$(cols[1]).text()}" ?`;
+
+    $('#modal_remove').modal('toggle');
+  }
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
+  crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+  integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+
+</html>

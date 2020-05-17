@@ -1,0 +1,89 @@
+<!--head -->
+<%- include('../../includes/header/place_head.ejs')%>
+<!-- fim head-->
+
+<!-- inicio body-->
+  <div class="page-header">
+    <%- include('../../includes/nav_top.ejs')%>
+  </div>
+
+  <br>
+
+  <!-- conteudo  da página -->
+  <div class="container-fluid ">
+
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <div class="">
+          <h5 name="pagina_titulo" class="text-center text-dark mt-1 lordOfRingsFont  "><%=pagina_titulo%></h5>
+        </div>
+
+      </div>
+    </div>
+    <hr>
+
+    <div class="row justify-content-center">
+
+      <div class="col-md-2  borda_redonda ">
+        <button name="bt_add" type="button" class="btn   lordOfRingsButton" data-toggle="modal"
+          onclick="bt_add()">Adicionar</button>
+      </div>
+   
+      <div class="col-md-2  borda_redonda ">
+        <button name="bt_add" type="button" class="btn   lordOfRingsButton" data-toggle="modal"
+          onclick="bt_back()">Voltar</button>
+      </div>
+
+    </div>
+    <br>
+    <div class="row  ">
+      <div class="col-md-4 "></div>
+      <div class="col-md-6">
+        <table name="tabela" id="tabela" class="table table-bordered bg-light ml-2  pr-2  ">
+          <thead>
+            <tr>
+              <th class="text-center">#</th>
+              <th class="text-center">Nome</th>
+              <th class="text-center">Descrição</th>
+              <th class="text-center">Imagem URL</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <% list_place.forEach(place => {%>
+            <tr>
+              <td><%= place.id %></td>
+              <td><%= place.name  %></td>
+              <td><%= place.description  %></td>
+              <td><%= place.image_URL %></td>
+
+              <td style="width:1px;  white-space:nowrap; padding: 0em;">
+                <a class='btn edit_icon' href="/admin/place/edit/<%=place.id%>"></a>
+              </td>
+
+              <td style="width:1px;  white-space:nowrap; padding: 0em;">
+
+                <form>
+                  <input type="hidden" id="place_id" name="place_id" value="<%=place.id %> ">
+                </form>
+
+                <button name="tabela_bt_excluir" type='button' onclick=' bt_remove(this);'
+                  class='btn delete_icon'></button>
+              </td>
+            </tr>
+            <% }); %>
+
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-3 "></div>
+    </div>
+
+  </div>
+
+  <%- include('../../includes/modal/modal_msg.ejs')%>
+  <%- include('../../includes/modal/modal_remove.ejs')%>
+
+  <%- include('../../includes/footer/place_footer.ejs')%>

@@ -1,0 +1,52 @@
+<!--head -->
+<%- include('../includes/header/index_head.ejs')%>
+<!--fim head -->
+
+<!-- inicio body -->
+<div class=" page-header">
+    <%- include('../includes/nav_top.ejs')%>
+</div>
+
+<div class="container-fluid bg-gradient-primary">
+
+    <% list_place.forEach(place => { %>
+    <div class="row justify-content-center">
+        <div class="d-flex flex-column  mb-3">
+            <div class="card mt-2 card_background" style="width: 28rem;">
+                <img class="card-img-top" src="<%=place.image_URL%>" alt="Card image cap">
+                <div class="card-body  ">
+
+                    <h5 class="card-title text-center text-light"><%=place.name%></h5>
+
+                    <hr class="hr_card">
+
+                    <p class="card-text text-light">
+                        Número de votos: <span id='vote_place_<%=place.id%>'><%=place.vote%></span>
+                    </p>
+
+                    <hr class="hr_card">
+
+                    <p class="card-text text-light text-center">Descrição</p>
+
+                    <p class="card-text text-light">
+                        <%=place.description%></span>
+                    </p>
+
+                    <hr class="hr_card">
+
+                    <div class="text-center">
+                        <button type="button" onclick="send_vote(<%=place.id%>)"
+                            class="btn btn-light font-weight-bold mt-2 ">Votar</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <% }); %>
+</div>
+
+<%- include('../includes/modal/modal_msg.ejs')%>
+
+<%- include('../includes/footer/index_footer.ejs')%>
